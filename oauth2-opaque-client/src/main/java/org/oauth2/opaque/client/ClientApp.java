@@ -31,8 +31,8 @@ public class ClientApp implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		String response = webClient.post()//
-				.uri("/me")//
+		String response = webClient.get()//
+				.uri("http://localhost:9101/api")//
 				.retrieve()//
 				.bodyToMono(String.class)//
 				.doOnError((e) -> System.out.println("An error occured: " + e.getMessage()))//
